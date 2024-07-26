@@ -6,7 +6,6 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20PermitUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20CappedUpgradeable.sol";
-import "hardhat/console.sol";
 
 contract Pff is AccessControlUpgradeable, ERC20Upgradeable,  ERC20PermitUpgradeable, ERC20BurnableUpgradeable  {
     bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");

@@ -10,8 +10,6 @@ contract Treasury is AccessControlUpgradeable {
 
     bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
 
-    mapping(address => uint256) public balances;
-
     event Withdrawed(address account, address token, uint256 amount);
     event WithdrawedETH(address account, uint256 value);
 
@@ -25,10 +23,6 @@ contract Treasury is AccessControlUpgradeable {
 
         _grantRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _grantRole(MANAGER_ROLE, _msgSender());
-    }
-
-    function dispostETH() public payable {
-        balances[_msgSender()] += msg.value;
     }
 
     function withdrawETH(uint256 value) public onlyRole(MANAGER_ROLE) {

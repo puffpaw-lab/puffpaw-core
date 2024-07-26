@@ -9,21 +9,21 @@ contract Mall is AccessControlUpgradeable {
     using SafeERC20 for IERC20;
     bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
 
-    address public payToken; // 支付代币地址
+    address public payToken;
 
-    mapping(uint256 => bool) public orderSns; // 订单号
+    mapping(uint256 => bool) public orderSns;
 
     event Payed(uint256 orderSn, address account, uint256 amount);
     event PayTokenUpdated(address newAddress, address oldAddress);
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     function initialize(address payToken_) public initializer {
         __AccessControl_init();
-        
+
         _grantRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _grantRole(MANAGER_ROLE, _msgSender());
 
